@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senn Reinigung - Gebäudereinigung Services</title>
+    <meta name="description" content="Senn Reinigung bietet professionelle Gebäudereinigungsservices: Winterdienst, Schneeräumung, Fensterreinigung, Hausmeisterservice und mehr. Das ganze Jahr über für Sie da!">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+            background: #ffffff !important;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff !important;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .initial-header {
+            background: #ffffff;
+            color: #333;
+            padding: 30px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            margin: 0;
+        }
+        
+        .initial-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .initial-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #2c5aa0;
+        }
+        
+        .initial-phone {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c5aa0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .initial-phone:hover {
+            color: #1e3f73;
+        }
+        
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            color: #333;
+            padding: 15px 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(-100%);
+            transition: all 0.3s ease;
+        }
+        
+        .sticky-header.scrolled {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .header-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #2c5aa0;
+        }
+        
+        .contact-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .availability-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #2c5aa0;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: white;
+        }
+        
+        .status-light {
+            width: 12px;
+            height: 12px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff88;
+        }
+        
+        @keyframes blink {
+            0%, 70% { opacity: 1; }
+            71%, 100% { opacity: 0.3; }
+        }
+        
+        .status-light {
+            animation: blink 3s infinite;
+        }
+        
+        .status-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .header-contact-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .header-btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .btn-call {
+            background: #2c5aa0;
+            color: white;
+            border: 2px solid #2c5aa0;
+        }
+        
+        .btn-call:hover {
+            background: #1e3f73;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 90, 160, 0.4);
+        }
+        
+        .btn-whatsapp {
+            background: #128C7E;
+            color: white;
+            border: 2px solid #128C7E;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #0F7A6B;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(18, 140, 126, 0.4);
+        }
+        
+        .btn-email {
+            background: #2c5aa0;
+            color: white;
+            border: 2px solid #2c5aa0;
+        }
+        
+        .btn-email:hover {
+            background: #1e3f73;
+            border-color: #1e3f73;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 90, 160, 0.4);
+        }
+        
+        .hero {
+            background: #ffffff;
+            color: #333;
+            padding: 100px 20px 80px 20px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-top: 0;
+        }
+        
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-left {
+            text-align: left;
+        }
+        
+        .hero-right {
+            position: relative;
+        }
+        
+        .hero-availability {
+            display: none;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            display: none;
+        }
+        
+        .carousel {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            animation: slide 12s infinite;
+        }
+        
+        .carousel-item {
+            flex: 1;
+            position: relative;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 30px 20px 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(0); }
+            25% { transform: translateX(-25%); }
+            45% { transform: translateX(-25%); }
+            50% { transform: translateX(-50%); }
+            70% { transform: translateX(-50%); }
+            75% { transform: translateX(-75%); }
+            95% { transform: translateX(-75%); }
+            100% { transform: translateX(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-availability {
+                display: flex;
+            }
+        }
+        
+        .main-claim {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #2c5aa0;
+            letter-spacing: 0.5px;
+            line-height: 1.05;
+            word-wrap: break-word;
+        }
+        
+        .tagline {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .hero-description {
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+        
+        .service-bullets {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: nowrap;
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .service-bullet {
+            font-size: 1.5rem;
+            color: #2c5aa0;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .service-separator {
+            font-size: 1.5rem;
+            color: #2c5aa0;
+            font-weight: 600;
+        }
+        
+                    .hero-cta-section {
+                margin-top: 20px;
+            }
+        
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        
+        .cta-btn {
+            padding: 18px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: none;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+        }
+        
+        .cta-call {
+            background: #2c5aa0;
+            color: white;
+        }
+        
+        .cta-call:hover {
+            background: #1e3f73;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(44, 90, 160, 0.5);
+        }
+        
+        .cta-whatsapp {
+            background: #128C7E;
+            color: white;
+        }
+        
+        .cta-whatsapp:hover {
+            background: #0F7A6B;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(18, 140, 126, 0.5);
+        }
+        
+        .phone-display {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c5aa0;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .phone-display:hover {
+            color: #1e3f73;
+        }
+        
+        .contact-info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 300px;
+            margin: 10px auto 0;
+        }
+        
+        .phone-display-small {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c5aa0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .phone-display-small:hover {
+            color: #1e3f73;
+        }
+        
+        .email-display {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c5aa0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .email-display:hover {
+            color: #1e3f73;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+        
+        .services {
+            background: white;
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: #2c5aa0;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #2c5aa0;
+            border-radius: 2px;
+        }
+        
+        .services-description {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #2c5aa0;
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-title {
+            color: #2c5aa0;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .service-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .contact-section {
+            background: #ffffff;
+            color: #333;
+            padding: 50px 40px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #2c5aa0;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            text-align: center;
+        }
+        
+        .contact-icon {
+            background: rgba(255, 255, 255, 0.2);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+        }
+        
+        .phone-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .email-address {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .email-address a {
+            color: #87ceeb;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .email-address a:hover {
+            opacity: 1;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                justify-content: space-between;
+                gap: 10px;
+            }
+            
+            .header-logo {
+                display: block;
+                font-size: 1.8rem;
+            }
+            
+            .contact-actions {
+                gap: 10px;
+                justify-content: flex-end;
+            }
+            
+            .availability-status {
+                display: none;
+            }
+            
+            .header-contact-buttons {
+                gap: 10px;
+            }
+            
+            .header-btn {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .status-text {
+                font-size: 0.8rem;
+                color: white;
+            }
+            
+            body {
+                padding-top: 80px;
+            }
+            
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .hero-left {
+                text-align: center;
+            }
+            
+            .main-claim {
+                font-size: 2.2rem;
+                line-height: 1.1;
+                text-align: center;
+                font-weight: 700;
+                padding: 0 10px;
+            }
+            
+            .service-bullets {
+                justify-content: center;
+                max-width: 100%;
+                gap: 20px;
+                flex-wrap: nowrap;
+            }
+            
+            .cta-buttons {
+                align-items: center;
+            }
+            
+            .hero-availability {
+                justify-content: center;
+            }
+            
+            .carousel-container {
+                height: 300px;
+                display: block;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .cta-btn {
+                padding: 15px 25px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .service-bullet {
+                font-size: 1.4rem;
+                font-weight: 600;
+            }
+            
+            .service-separator {
+                font-size: 1.4rem;
+                font-weight: 600;
+            }
+            
+            .phone-display {
+                font-size: 1.8rem;
+            }
+            
+            .contact-info-row {
+                flex-direction: row;
+                gap: 8px;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 100%;
+                width: 100%;
+            }
+            
+            .phone-display-small {
+                font-size: 1.1rem;
+            }
+            
+            .email-display {
+                font-size: 1.1rem;
+            }
+            
+            .initial-header {
+                padding: 30px 0;
+            }
+            
+            .initial-header-content {
+                padding: 0 20px;
+            }
+            
+            .initial-logo {
+                font-size: 1.4rem;
+            }
+            
+            .initial-phone {
+                font-size: 1rem;
+            }
+            
+            .tagline {
+                font-size: 1.6rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .service-bullets {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .service-bullet {
+                font-size: 1rem;
+            }
+            
+            .hero-description {
+                font-size: 1.3rem;
+            }
+            
+            .services {
+                padding: 40px 20px;
+                margin-top: -30px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .services-description {
+                font-size: 1rem;
+                margin-bottom: 30px;
+                padding: 0 10px;
+            }
+            
+            .contact-section {
+                padding: 40px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .phone-number {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .service-card {
+                margin: 0 -10px;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="header-content">
+            <div class="header-logo">SENN</div>
+            <div class="contact-actions">
+                <div class="availability-status">
+                    <div class="status-light"></div>
+                    <span class="status-text">Jetzt verfügbar</span>
+                </div>
+                <div class="header-contact-buttons">
+                    <a href="tel:+4917376861144" class="header-btn btn-call">
+                        ☎ 0173 7686114
+                    </a>
+                    <a href="https://web.whatsapp.com/send/?phone=4917376861144&text&type=phone_number&app_absent=0" class="header-btn btn-whatsapp" target="_blank">
+                        💭 WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="hero">
+        <div class="initial-header">
+            <div class="initial-header-content">
+                <div class="initial-logo">SENN REINIGUNG</div>
+                <a href="tel:+4917376861144" class="initial-phone">☎ 0173 7686114</a>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="main-claim">
+                    Gebäudereinigung und Reinigung für Augsburg und Umgebung
+                </div>
+                <div class="service-bullets">
+                    <div class="service-bullet">Reinigung</div>
+                    <div class="service-separator">•</div>
+                    <div class="service-bullet">Gebäudereinigung</div>
+                    <div class="service-separator">•</div>
+                    <div class="service-bullet">Services</div>
+                </div>
+                <div class="hero-cta-section">
+                    <div class="cta-buttons">
+                        <a href="tel:+4917376861144" class="cta-btn cta-call">☎ Jetzt anrufen</a>
+                        <a href="https://web.whatsapp.com/send/?phone=4917376861144&text&type=phone_number&app_absent=0" class="cta-btn cta-whatsapp" target="_blank">💭 WhatsApp</a>
+                    </div>
+                    <div class="contact-info-row">
+                        <a href="tel:+4917376861144" class="phone-display-small">☎ 0173 7686114</a>
+                        <a href="mailto:sennreinigung@gmail.com" class="email-display">✉️ sennreinigung@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <div class="carousel-item">
+                            <img src="./winterdienst.jpeg" alt="Winterdienst" loading="lazy">
+                            <div class="carousel-caption">Winterdienst</div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./schnee raeumen.jpeg" alt="Schneeräumung" loading="lazy">
+                            <div class="carousel-caption">Schneeräumung</div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./glasreinigung.jpeg" alt="Glasreinigung" loading="lazy">
+                            <div class="carousel-caption">Fenster- & Glasreinigung</div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./anlegen von grsflaech.jpeg" alt="Grasflächen anlegen" loading="lazy">
+                            <div class="carousel-caption">Grasflächen anlegen</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <section class="services">
+            <h2 class="section-title">Unsere Services</h2>
+            <p class="services-description">Die Pflege Ihres Hauses oder Unternehmens sollte keine Herausforderung sein. Senn ist Ihr zuverlässiger Partner, der jedes Projekt übernimmt. Wir sind der Gebäudeservice vor Ort, dem Sie vertrauen können!</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="./winterdienst.jpeg" alt="Winterdienst" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">Winterdienst</h3>
+                        <p class="service-description">Zuverlässiger Winterdienst für Ihre Sicherheit bei Schnee und Eis.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="./schnee raeumen.jpeg" alt="Schneeräumung" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">Schneeräumung</h3>
+                        <p class="service-description">Professionelle Schneeräumung für Gehwege, Einfahrten und Parkplätze.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=300&fit=crop&crop=center" alt="Gebäudereinigung" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">Gebäudereinigung</h3>
+                        <p class="service-description">Umfassende Reinigung von Büros, Geschäften und Wohngebäuden.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="./glasreinigung.jpeg" alt="Fensterreinigung" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">Fenster- & Glasreinigung</h3>
+                        <p class="service-description">Kristallklare Fenster und Glasflächen für optimalen Lichteinfall.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop&crop=center" alt="Hausmeisterservice" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">Hausmeisterservice</h3>
+                        <p class="service-description">Kompletter Hausmeisterservice für Ihre Immobilie.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop&crop=center" alt="Gartenpflege" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">Gartenpflege</h3>
+                        <p class="service-description">Professionelle Pflege und Gestaltung Ihrer Grünflächen.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=300&fit=crop&crop=center" alt="Abrissarbeiten" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">Abrissarbeiten</h3>
+                        <p class="service-description">Sichere und fachgerechte Abriss- und Demontagearbeiten.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=400&h=300&fit=crop&crop=center" alt="Rasenpflege" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">Rasen- & Heckenpflege</h3>
+                        <p class="service-description">Pflege und Entfernung von Rasen, Hecken und Sträuchern.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="./anlegen von grsflaech.jpeg" alt="Grasflächen" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">Grasflächen anlegen</h3>
+                        <p class="service-description">Neuanlage und Pflege von Rasenflächen und Grünbereichen.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&h=300&fit=crop&crop=center" alt="Malerarbeiten" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">Malerarbeiten</h3>
+                        <p class="service-description">Professionelle Malerarbeiten für Innen- und Außenbereiche.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?w=400&h=300&fit=crop&crop=center" alt="Fassadenreinigung" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">Fassadenreinigung</h3>
+                        <p class="service-description">Schonende Reinigung und Pflege von Gebäudefassaden.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop&crop=center" alt="Entrümpelung" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">Wohnungsentrümpelung</h3>
+                        <p class="service-description">Komplette Entrümpelung von Wohnungen, Häusern und Kellern.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact-section">
+            <h2 class="contact-title">Wir sind für Sie da – das ganze Jahr über!</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="phone-number">0173 7686114</div>
+                    <div>Telefon & WhatsApp</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="email-address">
+                        <a href="mailto:sennreinigung@gmail.com">sennreinigung@gmail.com</a>
+                    </div>
+                    <div>E-Mail</div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2024 Senn Reinigung - Professionelle Gebäudereinigung Services</p>
+    </footer>
+    <script>
+        window.addEventListener('scroll', function() {
+            const stickyHeader = document.querySelector('.sticky-header');
+            const scrollPosition = window.scrollY;
+            
+            if (scrollPosition > 50) {
+                stickyHeader.classList.add('scrolled');
+            } else {
+                stickyHeader.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
